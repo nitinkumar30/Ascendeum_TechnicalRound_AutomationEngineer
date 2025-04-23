@@ -12,6 +12,8 @@ task will be an Integer number that will define the number of alphabets in the O
 
 Solution. [SolidDiamondAlphabetPattern.py](https://github.com/nitinkumar30/Ascendeum_Round1/blob/main/Round%201/SolidDiamondAlphabetPattern.py)
 
+**Directly check how it's running in [Programiz Python Interpreter](https://www.programiz.com/online-compiler/7SqUqNJt56LAx)**
+
 ## Round 2: TBH
 
 Q. 
