@@ -7,9 +7,9 @@
 ## Round 1: Solid Diamond Alphabet Pattern
 
 Q. [In this task the candidates would require to create a Solid Diamond Alphabet Pattern using Python. The input for this 
-task will be an Integer number that will define the number of alphabets in the Output.](Round 1/Automation Technical Round 1 - Ascendeum.pdf)
+task will be an Integer number that will define the number of alphabets in the Output.](https://github.com/nitinkumar30/Ascendeum_Round1/blob/main/Round%201/Automation%20Technical%20Round%201%20-%20Ascendeum.pdf)
 
-Solution. [SolidDiamondAlphabetPattern.py](Round 1/SolidDiamondAlphabetPattern.py)
+Solution. [SolidDiamondAlphabetPattern.py](https://github.com/nitinkumar30/Ascendeum_Round1/blob/main/Round%201/SolidDiamondAlphabetPattern.py)
 
 ## Round 2: TBH
 
