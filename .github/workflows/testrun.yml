@@ -24,7 +24,7 @@ jobs:
 
       # Run Python scripts
       - name: Run file1.py
-        run: python Round 1/SolidDiamondAlphabetPattern.py
+        run: python Round1/SolidDiamondAlphabetPattern.py
 
       - name: Run file2.py
         run: python Round2.py
