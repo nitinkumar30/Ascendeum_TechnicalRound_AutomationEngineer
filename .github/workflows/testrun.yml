@@ -1,0 +1,33 @@
+name: Running all 3 assignments
+
+on:
+  workflow_dispatch:
+
+jobs:
+  testrun:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out this repo
+        uses: actions/checkout@v3
+
+      # Setup Python
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install the necessary packages
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+      # Run Python scripts
+      - name: Run file1.py
+        run: python Round1/file1.py
+
+      - name: Run file2.py
+        run: python file2.py
+
+      - name: Run file3.py in Round1 directory
+        run: python file3.py
