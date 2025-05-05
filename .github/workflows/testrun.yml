@@ -24,10 +24,10 @@ jobs:
 
       # Run Python scripts
       - name: Run file1.py
-        run: python Round1/file1.py
+        run: python Round 1/SolidDiamondAlphabetPattern.py
 
       - name: Run file2.py
-        run: python file2.py
+        run: python Round2.py
 
       - name: Run file3.py in Round1 directory
-        run: python file3.py
+        run: python Round3.py
