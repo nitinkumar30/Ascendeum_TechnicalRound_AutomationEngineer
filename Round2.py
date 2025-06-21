@@ -2,6 +2,7 @@
 # terminal. This process should be repeated for ten times from opening of the “Mathup” website, hitting the "Start"
 # button and noting the difficulty level for each time.
 import time
+import chromedriver_autoinstaller
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
