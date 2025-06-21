@@ -18,21 +18,18 @@ difficultyLvl = "//div[text()='Difficulty']/ancestor::div[@class='GamePostStart_
 chromedriver_autoinstaller.install()
 
 chrome_options = webdriver.ChromeOptions()
-options = [
-    "--window-size=1200,1200",
-    "--ignore-certificate-errors"
-    "--disable-gpu",
-    "--no-sandbox",
-    "--disable-dev-shm-usage",
-    '--remote-debugging-port=9222'
-]
-
-for option in options:
-    chrome_options.add_argument(option)
-
-# Use a temporary directory as user data dir
+# Temporary user profile
 temp_profile = tempfile.mkdtemp()
-options.add_argument(f"--user-data-dir={temp_profile}")
+chrome_options.add_argument(f"--user-data-dir={temp_profile}")
+
+# Add Chrome arguments
+chrome_options.add_argument("--window-size=1200,1200")
+chrome_options.add_argument("--ignore-certificate-errors")
+chrome_options.add_argument("--disable-gpu")
+chrome_options.add_argument("--no-sandbox")
+chrome_options.add_argument("--disable-dev-shm-usage")
+chrome_options.add_argument("--remote-debugging-port=9222")
+
 
 driver = webdriver.Chrome(options=chrome_options)
 wait = WebDriverWait(driver, 10)
