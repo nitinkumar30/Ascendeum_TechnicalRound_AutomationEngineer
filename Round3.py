@@ -24,7 +24,7 @@ chromedriver_autoinstaller.install()  # Check if the current version of chromedr
 chrome_options = webdriver.ChromeOptions()
 
 options = [
-    # "--window-size=1200,1200",
+    "--window-size=1200,1200",
     "--ignore-certificate-errors"
     "--disable-gpu",
     "--no-sandbox",
