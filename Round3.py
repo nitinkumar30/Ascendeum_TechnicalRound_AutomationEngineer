@@ -6,6 +6,7 @@
 
 import time
 
+import chromedriver_autoinstaller
 from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -15,7 +16,26 @@ URL = "https://mathup.com/"
 startXpath = "//div[text()='Start']"
 total_time = []
 
-driver = webdriver.Chrome()
+# driver = webdriver.Chrome()
+chromedriver_autoinstaller.install()  # Check if the current version of chromedriver exists
+                                      # and if it doesn't exist, download it automatically,
+                                      # then add chromedriver to path
+
+chrome_options = webdriver.ChromeOptions()
+
+options = [
+    # "--window-size=1200,1200",
+    "--ignore-certificate-errors"
+    "--disable-gpu",
+    "--no-sandbox",
+    "--disable-dev-shm-usage",
+    '--remote-debugging-port=9222'
+]
+
+for option in options:
+    chrome_options.add_argument(option)
+
+driver = webdriver.Chrome(options=chrome_options)
 
 for i in range(10):
     driver.get(URL)
