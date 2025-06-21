@@ -10,7 +10,27 @@ URL = "https://mathup.com/games/crossbit?mode=championship"
 startXpath = "//div[text()='Start']"
 difficultyLvl = "//div[text()='Difficulty']/ancestor::div[@class='GamePostStart_info__Rwi7G']//div[@class='GamePostStart_value__zH0b9']"
 
-driver = webdriver.Chrome()
+# driver = webdriver.Chrome()
+
+chromedriver_autoinstaller.install()  # Check if the current version of chromedriver exists
+                                      # and if it doesn't exist, download it automatically,
+                                      # then add chromedriver to path
+
+chrome_options = webdriver.ChromeOptions()
+options = [
+    # "--window-size=1200,1200",
+    "--ignore-certificate-errors"
+    "--disable-gpu",
+    "--no-sandbox",
+    "--disable-dev-shm-usage",
+    '--remote-debugging-port=9222'
+]
+
+for option in options:
+    chrome_options.add_argument(option)
+
+driver = webdriver.Chrome(options=chrome_options)
+
 
 for i in range(10):
     driver.get(URL)
