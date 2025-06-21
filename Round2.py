@@ -9,6 +9,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+import tempfile
+
 URL = "https://mathup.com/games/crossbit?mode=championship"
 startXpath = "//div[text()='Start']"
 difficultyLvl = "//div[text()='Difficulty']/ancestor::div[@class='GamePostStart_info__Rwi7G']//div[@class='GamePostStart_value__zH0b9']"
@@ -27,6 +29,10 @@ options = [
 
 for option in options:
     chrome_options.add_argument(option)
+
+# Use a temporary directory as user data dir
+temp_profile = tempfile.mkdtemp()
+options.add_argument(f"--user-data-dir={temp_profile}")
 
 driver = webdriver.Chrome(options=chrome_options)
 wait = WebDriverWait(driver, 10)
