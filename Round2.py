@@ -2,20 +2,18 @@
 # terminal. This process should be repeated for ten times from opening of the “Mathup” website, hitting the "Start"
 # button and noting the difficulty level for each time.
 import time
-import chromedriver_autoinstaller
 
+import chromedriver_autoinstaller
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 URL = "https://mathup.com/games/crossbit?mode=championship"
 startXpath = "//div[text()='Start']"
 difficultyLvl = "//div[text()='Difficulty']/ancestor::div[@class='GamePostStart_info__Rwi7G']//div[@class='GamePostStart_value__zH0b9']"
 
-# driver = webdriver.Chrome()
-
-chromedriver_autoinstaller.install()  # Check if the current version of chromedriver exists
-                                      # and if it doesn't exist, download it automatically,
-                                      # then add chromedriver to path
+chromedriver_autoinstaller.install()
 
 chrome_options = webdriver.ChromeOptions()
 options = [
@@ -31,17 +29,22 @@ for option in options:
     chrome_options.add_argument(option)
 
 driver = webdriver.Chrome(options=chrome_options)
+wait = WebDriverWait(driver, 10)
 
+start_time = time.time()
 
 for i in range(10):
     driver.get(URL)
-    time.sleep(5)
-    driver.find_element(By.XPATH, startXpath).click()
-    time.sleep(5)
-    element = driver.find_element(By.XPATH, difficultyLvl)
-    difficulty_level = element.text
 
-    print(f"Difficulty level for round {i} is {difficulty_level}.")
+    start_button = wait.until(EC.element_to_be_clickable((By.XPATH, startXpath)))
+    start_button.click()
+
+    difficulty_element = wait.until(EC.visibility_of_element_located((By.XPATH, difficultyLvl)))
+    difficulty_level = difficulty_element.text
+
+    print(f"Difficulty level for round {i+1} is {difficulty_level}.")
 
 
+end_time = time.time()
+print(f"Total time taken to complete this test is {(end_time - start_time):.2f}secs.")
 driver.quit()
