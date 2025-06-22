@@ -3,6 +3,12 @@
 # button and noting the difficulty level for each time.
 import time
 
+from pyvirtualdisplay import Display
+display = Display(visible=0, size=(800, 800))  
+display.start()
+
+chromedriver_autoinstaller.install()
+
 import chromedriver_autoinstaller
 from selenium import webdriver
 from selenium.webdriver.common.by import By
