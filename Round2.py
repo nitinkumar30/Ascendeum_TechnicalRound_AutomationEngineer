@@ -20,7 +20,7 @@ chromedriver_autoinstaller.install()
 chrome_options = webdriver.ChromeOptions()
 # Temporary user profile
 temp_profile = tempfile.mkdtemp()
-chrome_options.add_argument(f"--user-data-dir={temp_profile}")
+# chrome_options.add_argument(f"--user-data-dir={temp_profile}")
 
 # Add Chrome arguments
 chrome_options.add_argument("--window-size=1200,1200")
